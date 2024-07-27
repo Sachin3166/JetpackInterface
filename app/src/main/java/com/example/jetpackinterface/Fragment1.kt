@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.jetpackinterface.databinding.Fragment1Binding
 
@@ -51,6 +52,19 @@ class Fragment1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.Savebtn.setOnClickListener {
+
+            if(binding.EnterName.toString().isNullOrEmpty()||
+                binding.EnterContact.toString().isNullOrEmpty()||
+                binding.EnterEmail.toString().isNullOrEmpty()||
+                binding.EnterAddress.toString().isNullOrEmpty()||
+                binding.EnterPassword.toString().isNullOrEmpty()||
+                binding.ConfermPassword.toString().isNullOrEmpty()
+
+                ){
+                Toast.makeText(requireContext(),"Please Enter Full Details",Toast.LENGTH_SHORT).show()
+
+
+            }
             findNavController().navigate(R.id.fragment2)
         }
 
