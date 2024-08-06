@@ -20,6 +20,12 @@ private const val ARG_PARAM2 = "param2"
 class Fragment2 : Fragment() {
 
     lateinit var binding: Fragment2Binding
+    var value1:String?=null
+    var value2:String?=null
+    var value3:String?=null
+    var value4:String?=null
+    var value5:String?=null
+
 
 
     // TODO: Rename and change types of parameters
@@ -29,6 +35,13 @@ class Fragment2 : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            value1=it.getString("value1")
+            value2=it.getString("value2")
+            value3=it.getString("value3")
+            value4=it.getString("value4")
+            value5=it.getString("value5")
+
+
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
@@ -49,7 +62,11 @@ class Fragment2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.NameEntered.setText(value1)
+        binding.ContactEntered.setText(value2)
+        binding.EmailEntered.setText(value3)
+        binding.AddressEntered.setText(value4)
+        binding.EnteredPassword.setText(value5)
 
 
     }

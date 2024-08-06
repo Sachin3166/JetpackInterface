@@ -52,20 +52,34 @@ class Fragment1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.Savebtn.setOnClickListener {
+            var bundle1=Bundle()
 
-            if(binding.EnterName.toString().isNullOrEmpty()||
-                binding.EnterContact.toString().isNullOrEmpty()||
-                binding.EnterEmail.toString().isNullOrEmpty()||
-                binding.EnterAddress.toString().isNullOrEmpty()||
-                binding.EnterPassword.toString().isNullOrEmpty()||
-                binding.ConfermPassword.toString().isNullOrEmpty()
+            bundle1.putString("value",binding.EnterName.text.toString())
+            bundle1.putString("value",binding.EnterContact.text.toString())
+            bundle1.putString("value",binding.EnterAddress.text.toString())
+            bundle1.putString("value",binding.EnterEmail.text.toString())
+            bundle1.putString("value",binding.EnterPassword.text.toString())
+            bundle1.putString("value",binding.ConfermPassword.text.toString())
 
-                ){
-                Toast.makeText(requireContext(),"Please Enter Full Details",Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.fragment2,bundle1)
 
 
-            }
-            findNavController().navigate(R.id.fragment2)
+
+
+
+//            if(binding.EnterName.toString().isNullOrEmpty()||
+//                binding.EnterContact.toString().isNullOrEmpty()||
+//                binding.EnterEmail.toString().isNullOrEmpty()||
+//                binding.EnterAddress.toString().isNullOrEmpty()||
+//                binding.EnterPassword.toString().isNullOrEmpty()||
+//                binding.ConfermPassword.toString().isNullOrEmpty()
+//
+//                ){
+//                Toast.makeText(requireContext(),"Please Enter Full Details",Toast.LENGTH_SHORT).show()
+//
+//
+//            }
+//            findNavController().navigate(R.id.fragment2,bundle)
         }
 
     }
